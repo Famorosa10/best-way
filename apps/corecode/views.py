@@ -949,6 +949,7 @@ def upload_excel_categoria(request):
 
                 Categoria.objects.create(
                     nome=row[0],
+                    tipo=row[1],
                    
                 )
                 context= {"msg":"Categorias Importadas com Sucesso!","tipo":"importação de categoria","abertura_actual":abertura}
