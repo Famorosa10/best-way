@@ -1041,7 +1041,53 @@ def upload_excel_direcao(request):
                 )
             context= {"msg":"Direcções de Alocação Importada com Sucesso!","tipo":"importação de direcção de alocação","abertura_actual":abertura}
             return render(request, 'corecode/direccao_success.html',context)
-        
+    
+
+
+@login_required(login_url="/accounts/login/")
+def upload_excel_estacao(request):
+    abertura = Abertura_Prova_Vida.objects.filter(estado_actual="aberta").first()
+    if request.method == 'POST':
+        form = ExcelUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            excel_file = request.FILES['excel_file']
+            wb = load_workbook(excel_file)
+            ws = wb.active
+            for row in ws.iter_rows(min_row=2, values_only=True):
+
+               
+
+                Estacao.objects.create(
+                    nome=row[0],
+                   
+                )
+            context= {"msg":"Estação Importada com Sucesso!","tipo":"importação de direcção de alocação","abertura_actual":abertura}
+            return render(request, 'corecode/estacao_list.html',context)
+       
+
+
+
+
+@login_required(login_url="/accounts/login/")
+def upload_excel_departDir(request):
+    abertura = Abertura_Prova_Vida.objects.filter(estado_actual="aberta").first()
+    if request.method == 'POST':
+        form = ExcelUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            excel_file = request.FILES['excel_file']
+            wb = load_workbook(excel_file)
+            ws = wb.active
+            for row in ws.iter_rows(min_row=2, values_only=True):
+
+               
+
+                DireccaoDepartamento.objects.create(
+                    nome=row[0],
+                   
+                )
+            context= {"msg":"Estação Importada com Sucesso!","tipo":"importação de direcção de alocação","abertura_actual":abertura}
+            return render(request, 'corecode/departamentoDireccao_list.html',context)
+              
 
 
 

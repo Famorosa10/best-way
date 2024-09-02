@@ -366,7 +366,7 @@ def efectuarProvaVida(request):
         employee.tempo_na_empresa = anos_na_empresa
         
         # Dados Profissionais
-        employee.observacao= observacao
+        
         employee.habilitacao = request.POST.get('habilitacao_literaria')
         employee.reforma = reforma
         employee.data_de_admissao = data_admissao

@@ -100,9 +100,9 @@ WSGI_APPLICATION = "hrm_app.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'oficial',
+        'NAME': 'test3',
         'USER': 'postgres',
-        'PASSWORD': 'educa123',
+        'PASSWORD': 'Educa123',
         'HOST': 'localhost',
        'PORT': '5432',
     }

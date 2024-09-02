@@ -66,7 +66,9 @@ from .views import (
     index,
     upload_excel_categoria,
     upload_excel_categoria_nova,
+    upload_excel_departDir,
     upload_excel_departamento,
+    upload_excel_estacao,
     upload_excel_funcao_chefia,
     upload_excel_direcao,
     deleteFuncaoChefia,
@@ -142,12 +144,15 @@ urlpatterns = [
     path("direccao/detail/<uuid:id>", direccao_detail, name="direccao-detail"),
     path("direccao-delete/<uuid:id>",direccao_delete, name="direccao-delete"),
     path("direccao/create/", direccao_add, name="direccao-create"),
+    path("direccao/create/", direccao_add, name="direccao-create"),
 
 
     #Estação e departamento a
 
 
     #estacao
+       #Uploads
+       path('upload_excel_estacao', upload_excel_estacao, name='upload-excel-estacao'),
 
     path("estacao/list/", estacao_list, name="estacao_list"),
     path("estacao/create/", estacao_add, name="estacao-create"),
@@ -155,7 +160,9 @@ urlpatterns = [
     #departamento/direccao
     path("departamentoDir/list/", departamentodirec_list, name="departamentodirec_list"),
      path("departamentoDir/create/", direccaodepartamento_add, name="departamentodirec-create"),
-
+         #Uploads
+         path("upload-excel-departDir", upload_excel_departDir, name="upload-excel-departDir"),
+  
     #Termina aqui
 
     path("direccao/create/", direccao_add, name="direccao-create"),
@@ -224,6 +231,8 @@ urlpatterns = [
     path('upload_excel_funcao-chefia', upload_excel_funcao_chefia, name='upload-excel-funcao-chefia'),
     path('upload_excel_direcao', upload_excel_direcao, name='upload-excel-direcao'),
     path('upload_excel_departamento', upload_excel_departamento, name='upload-excel-departamento'),
+
+
 
 
    
